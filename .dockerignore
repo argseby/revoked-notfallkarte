@@ -1,0 +1,10 @@
+# The build needs package*.json, the sources and public/ only.
+node_modules
+dist
+test
+.env
+.env.*
+.git
+*.md
+Dockerfile
+docker-compose.yml

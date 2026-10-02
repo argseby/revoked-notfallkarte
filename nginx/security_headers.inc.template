@@ -1,0 +1,9 @@
+# The page loads nothing from anywhere but itself. It connects only to the
+# owner's own revoked server once they connected it — which server that is,
+# only they know, so any https origin (and the local machine, for development)
+# is allowed. It holds no password and never reads a vault. The card is drawn
+# on a canvas and downloaded from a blob: address.
+add_header Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "no-referrer" always;
+add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
